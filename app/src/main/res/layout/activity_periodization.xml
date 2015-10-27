@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?><!-- GridLayout： 5行 4列 水平布局 -->
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="2"
+    android:orientation="horizontal"
+    android:useDefaultMargins="true"
+    android:rowCount="6">
+
+    <TextView
+        android:id="@+id/total"
+        android:text="商品总价" />
+
+    <EditText
+        android:id="@+id/edit_total"
+        android:hint="单位元"
+        android:inputType="number"/>
+    　　　
+    <TextView
+        android:id="@+id/periodization"
+        android:text="分期数" />
+    　　
+
+    <EditText
+        android:id="@+id/edit_periodization"
+        android:hint="单位期数"
+        android:inputType="number"/>
+    　　
+
+    <TextView
+        android:id="@+id/fee"
+        android:text="每期手续费" />
+    　　
+
+    <EditText
+        android:id="@+id/edit_fee"
+        android:hint="单位是元"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/annual_interest_rate"
+        android:text="理财年利率" />
+    　　
+    <EditText
+        android:id="@+id/edit_rate"
+        android:hint="单位是%"
+        android:inputType="number"/>
+    　　
+    <Button
+        android:id="@+id/calculate"
+        android:layout_columnSpan="2"
+        android:text="计算" />
+    　　
+
+    <TextView
+        android:id="@+id/actual_payment"
+        android:text="实际支付：" />
+
+    <TextView
+        android:id="@+id/text_payment"
+        android:hint="单位元"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/save"
+        android:text="节省:" />
+
+    <TextView
+        android:id="@+id/text_save"
+        android:hint="单位元"
+        android:inputType="number"/>
+    　　
+</GridLayout>

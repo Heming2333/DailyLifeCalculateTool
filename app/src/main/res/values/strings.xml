@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DailyLifeCalculateTool</string>
+
+    <string-array name="catelog_item_array">
+        <item>Periodization</item>
+        <item>Mortgage</item>
+        <item>Led Watch Distance</item>
+    </string-array>
+    <string name="title_activity_periodization">PeriodizationActivity</string>
+
+</resources>
