@@ -51,6 +51,14 @@
         android:layout_columnSpan="2"
         android:text="计算" />
     　　
+    <TextView
+        android:id="@+id/each_payment"
+        android:text="每期支付：" />
+
+    <TextView
+        android:id="@+id/text_each"
+        android:hint="单位元"
+        android:inputType="number"/>
 
     <TextView
         android:id="@+id/actual_payment"

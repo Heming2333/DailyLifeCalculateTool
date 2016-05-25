@@ -28,6 +28,9 @@ public class PeriodizationActivity extends Activity {
     @Bind(R.id.edit_fee)
     EditText mFee;
 
+    @Bind(R.id.text_each)
+    TextView mEachPay;
+
     @Bind(R.id.text_payment)
     TextView mRealPayment;
 
@@ -57,12 +60,21 @@ public class PeriodizationActivity extends Activity {
         double fee = getNumValue(mFee);
         double rate = getNumValue(mRate);
 
-        double realpay = total - (total/period)*((rate*0.01)/12)*((period+1)*period/2)+period*fee;
-        double save = total - realpay;
+        double eachPay = total/period;
+        double realPay = total - (total/period)*((rate*0.01)/12)*((period+1)*period/2)+period*fee;
+        double save = total - realPay;
 
-
-        mRealPayment.setText(String.format("%.2f", realpay));
+        mEachPay.setText(String.format("%.2f", eachPay));
+        mRealPayment.setText(String.format("%.2f", realPay));
         mSave.setText(String.format("%.2f", save));
+
+        float loanRate = 0.065f;
+        int loanTotal = 630000;
+        int loanNum=360;
+
+        double monthPay = loanTotal*loanRate/12*Math.pow(1+loanRate/12, loanNum)/(Math.pow(1+loanRate/12, loanNum)-1);
+        mSave.setText(String.format("%.2f", monthPay));
+
     }
 
     public double getNumValue(EditText editView){

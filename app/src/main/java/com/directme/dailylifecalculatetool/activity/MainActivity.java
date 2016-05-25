@@ -4,9 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.widget.Toast;
 
-import com.diectme.dailylifecalculatetool.adapter.ItemAdapter;
+import com.directme.dailylifecalculatetool.adapter.ItemAdapter;
 import com.directme.dailylifecalculatetool.R;
+import com.directme.dailylifecalculatetool.model.BaseModel;
+import com.directme.dailylifecalculatetool.model.HouseLoan;
+import com.directme.dailylifecalculatetool.net.NetTask;
+import com.google.gson.Gson;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,6 +39,19 @@ public class MainActivity extends Activity{
 
         mCatalogView.setLayoutManager(new LinearLayoutManager(this));
         mCatalogView.setAdapter(new ItemAdapter(this));
+
+        new NetTask().execute(HouseLoan.class, new NetTask.ResponseListener<HouseLoan>() {
+            @Override
+            public void onGetResponse(HouseLoan loan) {
+
+                Toast.makeText(MainActivity.this, "当前商贷的利率为:"+loan.businessRate+"; 当前公积金贷款的利率为:"+loan.fundRate, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+                Toast.makeText(MainActivity.this, errorMsg, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
